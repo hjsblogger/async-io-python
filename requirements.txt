@@ -1,0 +1,9 @@
+pytest-selenium
+pytest-xdist
+pytest-order
+selenium>=4.6.0
+urllib3==1.26.12
+requests
+bs4
+pytest-httpx
+aiohttp
