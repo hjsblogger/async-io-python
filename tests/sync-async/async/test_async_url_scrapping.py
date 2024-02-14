@@ -13,7 +13,6 @@ class TestAsyncOps:
         meta_data_arr = []
         driver.get(locators.test_playground_url)
 
-        # Commented once the tests are executed in non-headless mode
         driver.maximize_window()
 
         meta_data_arr = helpers.scrap_playground_url(driver)
