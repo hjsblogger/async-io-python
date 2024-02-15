@@ -15,6 +15,14 @@ async def fetch(url, session):
     async with session.get(url) as response:
         return await response.text()
 
+# Encountered the below error
+# aiohttp.client_exceptions.ClientConnectorCertificateError: Cannot connect to 
+# host ecommerce-playground.lambdatest.io:443 ssl:True 
+# [SSLCertVerificationError: (1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: 
+# unable to get local issuer certificate (_ssl.c:1000)')]
+
+# Solution: https://stackoverflow.com/a/66842057/126105
+
 async def scrap_ecommerce(url):
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl_context=ssl_context)) as session:
