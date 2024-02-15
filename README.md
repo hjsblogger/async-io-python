@@ -1,10 +1,11 @@
 # Asyncio in Python
 
-<!-- <img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/5f7ad1c6-f5af-4607-a421-113eef7580b3">
+<img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/5f7ad1c6-f5af-4607-a421-113eef7580b3">
 
 <div align="center"><a href="https://scrape-it.cloud/assets/blog_img/web-scraping-with-python.png">Image Credit</a></div>
 <br/>
 
+<!--
 In this 'Web Scraping with Python' repo, we have covered the following usecases:
 
 * <b>Web Scraping using Selenium PyUnit</b>
