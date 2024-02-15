@@ -1,6 +1,6 @@
-# Web Scraping with Selenium Python and Beautiful Soup
+# Asyncio in Python
 
-<img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/5f7ad1c6-f5af-4607-a421-113eef7580b3">
+<!-- <img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/5f7ad1c6-f5af-4607-a421-113eef7580b3">
 
 <div align="center"><a href="https://scrape-it.cloud/assets/blog_img/web-scraping-with-python.png">Image Credit</a></div>
 <br/>
@@ -263,7 +263,7 @@ As seen above, the content from LambdaTest YouTube channel and LambdaTest e-comm
 
 <img width="1429" alt="Pytest-LambdaTest-Status-2" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/bf0d5757-cc71-4a56-b5ad-e6384018d78e">
 
-As seen above, the status of test execution is "Completed". Since the browser is instantiated in the *Headless* mode, the video recording is not available on the dashboard.
+As seen above, the status of test execution is "Completed". Since the browser is instantiated in the *Headless* mode, the video recording is not available on the dashboard. -->
 
 ## Have feedback or need assistance?
 Feel free to fork the repo and contribute to make it better! Email to [himanshu[dot]sheth[at]gmail[dot]com](mailto:himanshu.sheth@gmail.com) for any queries or ping me on the following social media sites:
