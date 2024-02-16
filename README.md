@@ -1,8 +1,8 @@
 # Asyncio in Python
 
-<img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/5f7ad1c6-f5af-4607-a421-113eef7580b3">
+<img width="1000" height="500" alt="Bulb" src="![asyncio](https://github.com/hjsblogger/async-io-python/assets/1688653/00d08945-d0b2-4d71-9e6d-958d4627ed87)">
 
-<div align="center"><a href="https://scrape-it.cloud/assets/blog_img/web-scraping-with-python.png">Image Credit</a></div>
+<div align="center"><a href="https://trunin.com/en/2021/07/python-call-async-from-sync/images/asyncio.jpeg">Image Credit</a></div>
 <br/>
 
 <!--
