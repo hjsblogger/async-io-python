@@ -1,6 +1,6 @@
 # Asyncio in Python
 
-<img width="1000" height="500" alt="Bulb" src="https://github.com/hjsblogger/async-io-python/assets/1688653/01bb4b8d-9243-4de3-9f02-bf4d19d99ac2">
+<img width="1000" height="200" alt="Bulb" src="https://github.com/hjsblogger/async-io-python/assets/1688653/01bb4b8d-9243-4de3-9f02-bf4d19d99ac2">
 
 <div align="center"><a href="https://trunin.com/en/2021/07/python-call-async-from-sync/images/asyncio.jpeg">Image Credit</a></div>
 <br/>
