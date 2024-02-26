@@ -4,12 +4,13 @@ from pageobject.locators import *
 from pageobject.helpers import helpers
 from pageobject.helpers import *
 
-sys.path.append(sys.path[0] + "/../../..")
+sys.path.append(sys.path[0] + "/../../")
 
-class TestAsyncOps:
+class TestAsyncHealthCheckOps:
     @pytest.mark.asyncio
     @pytest.mark.run(order=1)
     async def test_async_url_access(self, driver) -> list:
+        start_time = time.time()
         meta_data_arr = []
         driver.get(locators.test_playground_url)
 
@@ -29,3 +30,5 @@ class TestAsyncOps:
 
         for status_code, url in zip(status_codes, meta_data_arr):
             assert status_code == 200, f"Failed for URL: {url}, Status Code: {status_code}"
+
+        print("\nTime elapsed is " + str((time.time() - start_time)) + " seconds")
