@@ -11,11 +11,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# user_name = os.getenv('LT_USERNAME')
-# api_key = os.getenv('LT_ACCESS_KEY')
-
-user_name = "ankurn"
-api_key = "6Skayj4MMR4483tOhhdnHsJjLvozmyBI9D2ELd0pABI6m9oZut"
+user_name = os.getenv('LT_USERNAME')
+api_key = os.getenv('LT_ACCESS_KEY')
 
 async def get_lambdatest_all_builds(session):
     url = f"https://{user_name}:{api_key}@api.lambdatest.com/automation/api/v1/builds?limit=2000"
