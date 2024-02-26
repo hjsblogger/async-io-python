@@ -2,10 +2,7 @@
 
 # Import the locators file
 import sys
-from pprint import pprint
-import ssl
-import os
-import certifi
+
 sys.path.append(sys.path[0] + "/../../")
 
 from pageobject.locators import locators
