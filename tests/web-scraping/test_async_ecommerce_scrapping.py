@@ -43,7 +43,7 @@ async def scrap_ecommerce(url):
                 'product name': name.get_text(),
                 'product price': price.get_text()
             }
-            
+
             meta_data_arr.append(meta_data_dict)
 
         return meta_data_arr

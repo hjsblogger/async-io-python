@@ -52,5 +52,5 @@ if __name__ == '__main__':
         print("Product Page = " + test_url)
         print("*********************************************************************************************************\n")
         helpers.print_scrapped_content(meta_data_arr)
-    
+
         print("\nTime elapsed is " + str((time.time() - start_time)) + " seconds")
