@@ -35,6 +35,13 @@ class locators(object):
 
     test_bs4_url = "https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57"
 
+    ########## Scraping Weather website ###########
+    ###### Format (Page 1): https://www.latlong.net/category/cities-236-15.html ######
+    ###### Format (Page 1): https://www.latlong.net/category/cities-236-15-1.html ######
+    ###### Format (Page 13): https://www.latlong.net/category/cities-236-15-13.html ######
+
+    test_weather_url = "https://www.latlong.net/category/cities-236-15"
+
     ########## Definitions for scraping using Beautiful Soup ###########
 
     test_bs4_infinite_url = "https://scrapingclub.com/exercise/list_infinite_scroll/"

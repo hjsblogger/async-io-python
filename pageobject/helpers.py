@@ -7,13 +7,23 @@ import asyncio
 import httpx
 import asyncio
 import aiohttp
+import ssl
+import os
 from selenium import webdriver
+import certifi
+
+from bs4 import BeautifulSoup
+from pprint import pprint
+
+
+
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pageobject.locators import locators
 from pageobject.locators import *
+
 
 from array import array
 
