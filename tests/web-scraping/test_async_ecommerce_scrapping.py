@@ -3,10 +3,11 @@ import aiohttp
 import sys
 import ssl
 import certifi
+import time
 from pprint import pprint
 from bs4 import BeautifulSoup
 
-sys.path.append(sys.path[0] + "/../../..")
+sys.path.append(sys.path[0] + "/../../")
 
 from pageobject.locators import locators
 from pageobject.helpers import helpers
@@ -25,7 +26,7 @@ async def fetch(url, session):
 
 async def scrap_ecommerce(url):
     ssl_context = ssl.create_default_context(cafile=certifi.where())
-    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl_context=ssl_context)) as session:
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=ssl_context)) as session:
         html = await fetch(url, session)
         soup = BeautifulSoup(html, 'html.parser')
 
@@ -48,6 +49,7 @@ async def scrap_ecommerce(url):
         return meta_data_arr
 
 async def main():
+    start_time = time.time()
     base_url = locators.test_bs4_url
     tasks = [scrap_ecommerce(f"{base_url}&page={i}") for i in range(1, 6)]
     results = await asyncio.gather(*tasks)
@@ -57,7 +59,8 @@ async def main():
         print("*********************************************************************************************************")
         helpers.print_scrapped_content(result)
         print()
+    
+    print("\nTime elapsed is " + str((time.time() - start_time)) + " seconds")
 
 if __name__ == '__main__':
     output = asyncio.run(main())
-    print(output)

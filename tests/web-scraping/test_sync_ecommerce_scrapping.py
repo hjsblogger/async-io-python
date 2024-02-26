@@ -3,7 +3,7 @@
 # Import the locators file
 import sys
 from pprint import pprint
-sys.path.append(sys.path[0] + "/../../..")
+sys.path.append(sys.path[0] + "/../../")
 
 from pageobject.locators import locators
 from pageobject.locators import *
@@ -44,6 +44,7 @@ def scrap_ecommerce(url) -> list:
 # Page 1: https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57&page=1
 # Page 5: https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57&page=5
 if __name__ == '__main__':
+    start_time = time.time()
     for iteration in range(1,6):
         test_url = locators.test_bs4_url + "&page=" + str(iteration)
         meta_data_arr = scrap_ecommerce(test_url)
@@ -51,3 +52,5 @@ if __name__ == '__main__':
         print("Product Page = " + test_url)
         print("*********************************************************************************************************\n")
         helpers.print_scrapped_content(meta_data_arr)
+    
+        print("\nTime elapsed is " + str((time.time() - start_time)) + " seconds")
