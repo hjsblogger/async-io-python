@@ -2,7 +2,7 @@
 PYTHON := python3
 PYTEST := pytest
 PIP := pip3
-PROJECT_NAME := web scraping using Python
+PROJECT_NAME := Asyncio in Python
 
 .PHONY: install
 install:
@@ -17,30 +17,41 @@ test:
     export NODE_ENV = test
 
 .PHONY: test
-scrap-using-pyunit:
-	- echo $(EXEC_PLATFORM)
-	- $(PYTHON) tests/pyunit/test_ecommerce_scraping.py
-	- $(PYTHON) tests/pyunit/test_yt_scraping.py
+fetch-pokemon-names:
+	- hyperfine "python tests/fetching-pokemon-names/test_sync_pokeman.py" \
+		"python tests/fetching-pokemon-names/test_async_pokeman.py" --warmup=3
 
-scrap-using-pytest-async:
-	- echo $(EXEC_PLATFORM)
-	- $(PYTEST) --verbose -s -n 4 tests/pytest/test_yt_scraping_async.py
+# Can't do this since the OpenWeather API account might get blocked
+# fetch-weather-info:
+# 	- hyperfine "python tests/fetching-weather-information/test_sync_weather_info.py" \
+# 		"python tests/fetching-weather-information/test_async_weather_info.py" --warmup=3
 
-scrap-using-pytest-sync:
-	- echo $(EXEC_PLATFORM)
-	- $(PYTEST) --verbose -s -n 4 tests/pytest/test_yt_scraping_sync.py
-# - $(PYTEST) --verbose -s -n 1 --capture=no tests/pytest/test_org_yt_scrapping_sync.py
+fetch-sync-weather-info:
+	- python tests/fetching-weather-information/test_sync_weather_info.py
 
-scrap-using-beautiful-soup:
-	- echo $(EXEC_PLATFORM)
-	- $(PYTHON) tests/beautiful-soup/test_ecommerce_scraping.py
-	- $(PYTHON) tests/beautiful-soup/test_infinite_scraping.py
+fetch-async-weather-info:
+	- python tests/fetching-weather-information/test_async_weather_info.py
+
+get-automation-builds:
+	- hyperfine "python tests/get-automation-builds/test_sync_automation_builds.py" \
+		"python tests/get-automation-builds/test_async_automation_builds.py" --warmup=3
+
+check-url-health:
+	- hyperfine "pytest --verbose --capture=no tests/url-health-checking/test_sync_url_health_check.py" \
+		"pytest --verbose --capture=no tests/url-health-checking/test_async_url_health_check.py" --warmup=3
+
+perform-web-scraping:
+	- hyperfine "python tests/web-scraping/test_sync_ecommerce_scrapping.py" \
+		"python tests/web-scraping/test_async_ecommerce_scrapping.py" --warmup=3
 
 .PHONY: clean
 clean:
     # This helped: https://gist.github.com/hbsdev/a17deea814bc10197285
 	find . | grep -E "(__pycache__|\.pyc$$)" | xargs rm -rf
 	@echo "Clean Succeded"
+
+	find . | grep -E "(.DS_Store)" | xargs rm -rf
+	@echo "Clean of DS_Store Succeded"
 
 .PHONY: distclean
 distclean: clean
@@ -51,6 +62,8 @@ help:
 	@echo ""
 	@echo "install : Install project dependencies"
 	@echo "clean : Clean up temp files"
-	@echo "scrap-using-pyunit : Web Scraping using Pyunit"
-	@echo "scrap-using-pytest : Web Scraping using Pytest"
-	@echo "scrap-using-beautiful-soup : Web Scraping using Beautiful Soup"
+	@echo "fetch-pokemon-names : Fetch Pokemon names [Sync & Async]"
+	@echo "fetch-weather-info : Fetch weather information [Sync & Async]"
+	@echo "get-automation-builds : Get automation build details [Sync & Async]"
+	@echo "check-url-health : Check health of Selenium Playground [Sync & Async]"
+	@echo "perform-web-scraping : Web scraping E-Commerce Playground [Sync & Async]"
