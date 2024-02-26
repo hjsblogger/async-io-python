@@ -15,15 +15,12 @@ import certifi
 from bs4 import BeautifulSoup
 from pprint import pprint
 
-
-
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pageobject.locators import locators
 from pageobject.locators import *
-
 
 from array import array
 
@@ -61,25 +58,12 @@ class helpers(object):
         # Output the number of elements located
         print("Number of elements located:", num_elements)
 
-        # Now that we have the number of links, let's get details of the links 
-        # meta_data_arr.append(meta_data_dict)
-
         for loc_link_info in loc_list_elems:
             link_info = loc_link_info.find_element(By.CSS_SELECTOR,
                 ".text-black.text-size-14.hover\:text-lambda-900.leading-relaxed")
 
             final_link = link_info.get_attribute('href')
 
-            # Create a dictionary of the video meta-data
-            # meta_data_dict = {
-            #     'link': final_link
-            # }
-
-            meta_data_dict = {
-                final_link
-            }
-
-            # meta_data_arr.append(meta_data_dict)
             meta_data_arr.append(final_link)
 
         return meta_data_arr
