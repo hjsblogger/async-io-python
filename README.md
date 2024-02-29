@@ -1,24 +1,19 @@
 # Asyncio in Python
 
-<img width="1000" height="200" alt="Bulb" src="https://github.com/hjsblogger/async-io-python/assets/1688653/01bb4b8d-9243-4de3-9f02-bf4d19d99ac2">
+<img width="1000" height="400" alt="Bulb" src="https://github.com/hjsblogger/async-io-python/assets/1688653/01bb4b8d-9243-4de3-9f02-bf4d19d99ac2">
 
 <div align="center"><a href="https://trunin.com/en/2021/07/python-call-async-from-sync/images/asyncio.jpeg">Image Credit</a></div>
 <br/>
 
-<!--
-In this 'Web Scraping with Python' repo, we have covered the following usecases:
+In this 'Asyncio with Python' repo, we have covered the following usecases:
 
-* <b>Web Scraping using Selenium PyUnit</b>
-* <b>Web Scraping using Selenium Pytest</b>
-* <b>Web Scraping of dynamic website using Beautiful Soup and Selenium</b>
+* Fetching Pokemon names using [Pokemon APIs](https://pokeapi.co/api/v2/pokemon/)
+* Fetching Weather information for certain cities in the US using [Openweather APIs](https://openweathermap.org/api)
+* Reading Automation Builds & Session information using [LambdaTest APIs](https://www.lambdatest.com/support/api-doc/)
+* Checking URL Health of links present on [LambdaTest Selenium Playground](https://lambdatest.com/selenium-playground)
+* Web Scraping of content on [LambdaTest E-Commerce Playground](https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57)
 
-The following websites are used for the purpose of demoing web scraping:
-
-* [LambdaTest YouTube Channel](https://www.youtube.com/@lambdatest/videos)
-* [LambdaTest E-commerce Playground](https://ecommerce-playground.lambdatest.io/)
-* [Scraping Club Infinite Scroll Website](https://scrapingclub.com/exercise/list_infinite_scroll/)
-
-<img width="20" height="20" alt="Bulb" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/6134e8c2-edd6-4910-9f0e-e8cab9b8669d">As mentioned online, scraping public web data from YouTube is legal as long as you don't go after information that is not available to the general public. However, there might be cases where the YouTube scraping might throw errors (or exceptions) when scraping is done on the Cloud Selenium Grid.
+The scenarios mentioned above are executed using Synchronous & Asynchronous (or Async) modes in Python. The Async Programming is realized by leveraging the [asyncio](https://docs.python.org/3/library/asyncio.html) library in Python.  
 
 ## Pre-requisites for test execution
 
@@ -39,7 +34,7 @@ Navigate the newly created virtual environment by triggering the *source venv/bi
 source venv/bin/activate
 ```
 
-Follow steps(3) and (4) for performing web scraping on LambdaTest Cloud Grid:
+Follow steps(3) and (4) for using the LambdaTest Cloud Grid (particularly used for Web Scraping & URL Health Checking Scenarios):
 
 **Step 3**
 
@@ -49,9 +44,19 @@ Procure the LambdaTest User Name and Access Key by navigating to [LambdaTest Acc
 
 **Step 4**
 
-Add the LambdaTest User Name and Access Key in the *Makefile* that is located in the parent directory. Once done, save the Makefile.
+Add the LambdaTest User Name and Access Key in the *.env* (or *Makefile*)that is located in the parent directory. Once done, save the Makefile.
 
-![MakeFileChange](https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/e3c0a6c3-cc1d-4692-ab59-182ca30964c0)
+![LambdaTestEnv-Change](https://github.com/hjsblogger/async-io-python/assets/1688653/ffe23c56-5b53-4d6f-8cfa-85c82d725f99)
+
+![LambdaTestMakefile-Change-2](https://github.com/hjsblogger/async-io-python/assets/1688653/a3105b0c-4515-448b-ace3-77b25a9bf2c1)
+
+**Step 5**
+
+For realizing the *Weather Information* scenario, you need to register on [OpenWeather](https://openweathermap.org/). Once done, set the environment variable *OPEN_WEATHER_API* in .env. The API keys can be located from [OpenWeather API Page](https://home.openweathermap.org/api_keys)
+
+<img width="1424" alt="OpenWeather-API-2" src="https://github.com/hjsblogger/async-io-python/assets/1688653/7d2ebb75-2d72-4dc6-9fb5-bf9cf2a7c96f">
+
+![OpenWeather-API-1](https://github.com/hjsblogger/async-io-python/assets/1688653/e240c220-bb62-491b-a423-f61e34183ec1)
 
 ## Dependency/Package Installation
 
@@ -60,12 +65,17 @@ Run the *make install* command on the terminal to install the desired packages (
 ```bash
 make install
 ```
-<img width="1404" alt="Make-Install" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/4cb16443-4411-4f11-8692-aa7290cded0b">
+<img width="1295" alt="Makefile-1" src="https://github.com/hjsblogger/async-io-python/assets/1688653/9dd1d433-8994-47ec-b504-fe8c8810979f">
 
-<img width="1404" alt="Make-Install-2" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/8c7e8938-5584-480b-ad04-002b53827396">
+<img width="1412" alt="Makefile-2" src="https://github.com/hjsblogger/async-io-python/assets/1688653/062f66c6-2bbd-44dc-bfad-807c7e006d55">
 
-With this, all the dependencies and environment variables are set. We are all set for web scraping with the desired frameworks (i.e. Pyunit, Pytest, and Beautiful Soup)
+For benchmarking (over a certain number of runs), we have used [hyperfine](https://github.com/sharkdp/hyperfine), a command-line benchmarking tool. Installation of hyperfine on macOS is done by triggering ```brew install hyperfine``` on the terminal.
 
+<img width="1405" alt="Hyperfine-1" src="https://github.com/hjsblogger/async-io-python/assets/1688653/053b9437-5065-4176-8e91-08e81a2d5b96">
+
+With this, all the dependencies and environment variables are set.
+
+<!--
 ## Web Scraping using Selenium PyUnit (Local Execution)
 
 The following websites are used for demonstration:
@@ -112,9 +122,9 @@ Follow the below mentioned steps to perform scraping on local machine:
 
 **Step 1**
 
-Set *EXEC_PLATFORM* environment variable to *local*. Trigger the command *export EXEC_PLATFORM=local* on the terminal.
+Set *EXEC_PLATFORM* environment variable to *local*. Trigger the command ```brew install hyperfine``` on the terminal for installing hyperfine on macOS.
 
-<img width="1043" alt="Make-Local" src="https://github.com/hjsblogger/web-scraping-with-python/assets/1688653/0c9fceba-492c-4f3a-9240-8478b76b4eab">
+<img width="1405" alt="Hyperfine-1" src="https://github.com/hjsblogger/async-io-python/assets/1688653/053b9437-5065-4176-8e91-08e81a2d5b96">
 
 **Step 2**
 
