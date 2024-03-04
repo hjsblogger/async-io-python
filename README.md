@@ -127,6 +127,29 @@ Trigger the command *make fetch-async-weather-info* to fetch the Pokemon names u
 
 ### <b>Result: Asyncio - 318.53+ seconds faster than sync execution</b>
 
+### Checking URL health
+
+In this scenario, the hyperlinks on [LambdaTest Selenium Playground](https://lambdatest.com/selenium-playground) are first scraped using BeautifulSoup. Once the links are available, their health is checked using the response code via the [requests](https://pypi.org/project/requests/) library
+
+<img width="1427" alt="URL-Health-Checking" src="https://github.com/hjsblogger/async-io-python/assets/1688653/b1be601c-eb7b-4314-b898-b4ddbc8b31e9">
+
+Trigger the command *make check-url-health* to check the health (i.e. response code) of the links present on the LambdaTest Selenium Playground.
+
+<img width="1110" alt="4_Check_URL_Health_Execution" src="https://github.com/hjsblogger/async-io-python/assets/1688653/bd4c7c89-38fa-4e80-99c9-411328bcd151">
+
+### <b>Result: Asyncio - 1.41+ seconds faster than sync execution</b>
+
+### Web Scraping
+
+In this scenario, the product details from [Page-1](https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57) thru' [Page-5](https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=57&page=5) are scraped using the BeautifulSoup library.
+
+The implementation using the sync programming is similar to the Web Scraping scenario that covered in [Web Scraping with Python](https://github.com/hjsblogger/web-scraping-with-python/blob/main/tests/beautiful-soup/test_ecommerce_scraping.py) repo.
+
+Trigger the command *make perform-web-scraping* to check scrap the product details on the test page mentioned earlier.
+
+<img width="1110" alt="5_Web_Scraping_Execution" src="https://github.com/hjsblogger/async-io-python/assets/1688653/2a40bbc2-7b50-4be3-96e4-357971f749e3">
+
+### <b>Result: Asyncio - 2.93+ seconds faster than sync execution</b>
 
 ## Have feedback or need assistance?
 Feel free to fork the repo and contribute to make it better! Email to [himanshu[dot]sheth[at]gmail[dot]com](mailto:himanshu.sheth@gmail.com) for any queries or ping me on the following social media sites:
