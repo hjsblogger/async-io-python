@@ -70,7 +70,7 @@ async def get_lambdatest_sessions(session):
             print(f"Build: {build_name}  |  ID: {test_id}  |  Status: {status_ind}")          
 
 @pytest.mark.asyncio
-async def test_fetch_lambdatest_platforms():
+async def test_fetch_lambdatest_sessions():
     ssl_context = ssl.create_default_context(cafile=certifi.where())
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=ssl_context)) as session:
         await get_lambdatest_sessions(session)
