@@ -1,6 +1,7 @@
 pytest-selenium
 pytest-xdist
 pytest-order
+pytest-asyncio
 selenium>=4.6.0
 urllib3==1.26.12
 requests
