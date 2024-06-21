@@ -9,8 +9,8 @@ install:
 	$(PIP) install -r requirements.txt
 	@echo "Set env vars LT_USERNAME & LT_ACCESS_KEY"
     # Procure Username and AccessKey from https://accounts.lambdatest.com/security
-    export LT_USERNAME=himanshuj
-    export LT_ACCESS_KEY=Ia1Miq
+    export LT_USERNAME=himanshujlambdatest
+    export LT_ACCESS_KEY=URsVCP7vFs0pY9QVs016neJhZ2BuynstLaGYYzuZzdHB7r8x8s
 
 .PHONY: test
 test:
@@ -52,6 +52,9 @@ clean:
 
 	find . | grep -E "(.DS_Store)" | xargs rm -rf
 	@echo "Clean of DS_Store Succeded"
+
+	find . | grep -E "(.cache)" | xargs rm -rf
+	@echo "Pytest Cache clean Succeded"
 
 .PHONY: distclean
 distclean: clean
