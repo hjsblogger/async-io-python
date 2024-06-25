@@ -34,15 +34,16 @@ fetch-async-weather-info:
 
 get-automation-builds:
 	- hyperfine "python tests/get-automation-builds/test_sync_automation_builds.py" \
-		"python tests/get-automation-builds/test_async_automation_builds.py" --warmup=3
+		"python tests/get-automation-builds/test_async_automation_builds.py" --warmup=3 --show-output
 
 check-url-health:
 	- hyperfine "pytest --verbose --capture=no tests/url-health-checking/test_sync_url_health_check.py" \
-		"pytest --verbose --capture=no tests/url-health-checking/test_async_url_health_check.py" --warmup=3
+		"pytest --verbose --capture=no tests/url-health-checking/test_async_url_health_check.py" --warmup=3  \
+		--show-output
 
 perform-web-scraping:
 	- hyperfine "python tests/web-scraping/test_sync_ecommerce_scrapping.py" \
-		"python tests/web-scraping/test_async_ecommerce_scrapping.py" --warmup=3
+		"python tests/web-scraping/test_async_ecommerce_scrapping.py" --warmup=3 --show-output
 
 .PHONY: clean
 clean:
