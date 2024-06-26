@@ -24,26 +24,26 @@ from pageobject.locators import *
 
 from array import array
 
-def create_actions(driver):
-    actions = ActionChains(driver)
-    return actions
+# def create_actions(driver):
+#     actions = ActionChains(driver)
+#     return actions
 
-def create_waits(driver, duration):
-    # Explicit wait of 10 seconds
-    wait = WebDriverWait(driver, duration)
-    return wait
+# def create_waits(driver, duration):
+#     # Explicit wait of 10 seconds
+#     wait = WebDriverWait(driver, duration)
+#     return wait
 
 class helpers(object):
     # def scrap_playground_url(driver)->list:
     def scrap_playground_url(driver)->array:    
         meta_data_arr=[]
         # Explicit wait of 10 seconds
-        wait = create_waits(driver, 10)
+        # wait = create_waits(driver, 10)
 
-        actions = create_actions(driver)
+        # actions = create_actions(driver)
 
-        element_cat = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,
-                locators.loc_title)))
+        # element_cat = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,
+        #         locators.loc_title)))
         
         # Now the page is loaded, let's fetch the links from the page
         loc_parent_elem = driver.find_element(By.XPATH,
