@@ -6,6 +6,12 @@ from pageobject.helpers import *
 
 sys.path.append(sys.path[0] + "/../../")
 
+async def check_status(session, url):
+    async with session.get(url) as response:
+        status_code = response.status
+        print(url + " status = " + str(status_code) + " ")
+        return status_code
+
 class TestAsyncHealthCheckOps:
     @pytest.mark.asyncio
     @pytest.mark.run(order=1)
@@ -17,12 +23,6 @@ class TestAsyncHealthCheckOps:
         driver.maximize_window()
 
         meta_data_arr = helpers.scrap_playground_url(driver)
-
-        async def check_status(session, url):
-            async with session.get(url) as response:
-                status_code = response.status
-                print(url + " status = " + str(status_code) + " ")
-                return status_code
 
         async with aiohttp.ClientSession() as session:
             tasks = [check_status(session, url) for url in meta_data_arr]
