@@ -15,17 +15,16 @@ sys.path.append(sys.path[0] + "/../..")
 
 exec_async = os.getenv('EXEC_ASYNC')
 
+options = ChromeOptions()
+
+# Refer https://www.selenium.dev/blog/2023/headless-is-going-away/ for the new way
+# to trigger browser in headless mode
+options.add_argument("--headless=new")
+
 if exec_async == 'true':
     # logs via pytest-xdist
     # https://github.com/pytest-dev/pytest-xdist/issues/354#issuecomment-430502446
     # sys.stdout = sys.stderr
-
-    options = ChromeOptions()
-
-    # Refer https://www.selenium.dev/blog/2023/headless-is-going-away/ for the new way
-    # to trigger browser in headless mode
-    options.add_argument("--headless=new")
-
     @pytest.fixture(scope='function')
     async def driver():
         driver = await asyncio.to_thread(webdriver.Chrome, options=options)
