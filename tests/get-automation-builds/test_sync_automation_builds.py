@@ -17,7 +17,7 @@ api_key = os.getenv('LT_ACCESS_KEY')
 start_time = time.time()
 
 def get_lambdatest_all_builds():
-    url = f"https://{user_name}:{api_key}@api.lambdatest.com/automation/api/v1/builds?limit=1000"
+    url = f"https://{user_name}:{api_key}@api.lambdatest.com/automation/api/v1/builds?limit=50"
     headers = {"accept": "application/json"}
 
     # SSL context for HTTPS request
