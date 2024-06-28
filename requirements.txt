@@ -9,3 +9,5 @@ bs4
 pytest-httpx
 aiohttp
 python-dotenv
+fastapi
+uvicorn
