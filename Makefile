@@ -19,7 +19,7 @@ test:
 .PHONY: test
 fetch-pokemon-names:
 	- hyperfine "python tests/fetching-pokemon-names/test_sync_pokeman.py" \
-		"python tests/fetching-pokemon-names/test_async_pokeman.py" --warmup=3
+		"python tests/fetching-pokemon-names/test_async_pokeman.py" --warmup=3 --show-output
 
 # Can't do this since the OpenWeather API account might get blocked
 # fetch-weather-info:
@@ -44,6 +44,9 @@ check-url-health:
 perform-web-scraping:
 	- hyperfine "python tests/web-scraping/test_sync_ecommerce_scrapping.py" \
 		"python tests/web-scraping/test_async_ecommerce_scrapping.py" --warmup=3 --show-output
+
+fast-api-asyncio:
+	- pytest --verbose --capture=no tests/fastAPI/app/test_main.py
 
 .PHONY: clean
 clean:
