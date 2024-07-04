@@ -46,7 +46,7 @@ perform-web-scraping:
 		"python tests/web-scraping/test_async_ecommerce_scrapping.py" --warmup=3 --show-output
 
 fast-api-asyncio:
-	- pytest --verbose --capture=no tests/fastAPI/app/test_main.py
+	- pytest --verbose --capture=no tests/fastAPI/tests/test_main.py
 
 .PHONY: clean
 clean:
