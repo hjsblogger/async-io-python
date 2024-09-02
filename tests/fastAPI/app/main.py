@@ -10,7 +10,6 @@ load_dotenv()
 user_name = os.getenv('LT_USERNAME')
 api_key = os.getenv('LT_ACCESS_KEY')
 
-
 app = FastAPI()
 
 async def get_lambdatest_all_builds(session):

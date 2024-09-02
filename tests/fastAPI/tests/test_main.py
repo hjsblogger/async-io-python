@@ -26,4 +26,3 @@ async def test_fetch_sessions():
         data = response.json()
         assert "session_names" in data
         assert isinstance(data["session_names"], list)
-
