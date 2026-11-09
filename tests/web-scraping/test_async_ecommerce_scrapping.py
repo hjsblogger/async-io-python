@@ -30,7 +30,7 @@ async def scrap_ecommerce(url):
         html = await fetch(url, session)
         soup = BeautifulSoup(html, 'html.parser')
 
-        rows = soup.select('.product-layout.product-grid.no-desc.col-xl-4.col-lg-4.col-md-4.col-sm-6.col-6')
+        rows = soup.select('#product-list .product-thumb')
         meta_data_arr = []
 
         for row in rows:

@@ -20,7 +20,7 @@ def scrap_ecommerce(url) -> list:
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    rows = soup.select('.product-layout.product-grid.no-desc.col-xl-4.col-lg-4.col-md-4.col-sm-6.col-6')
+    rows = soup.select('#product-list .product-thumb')
     # print(len(articles))
 
     meta_data_arr = []
@@ -32,7 +32,7 @@ def scrap_ecommerce(url) -> list:
 
         # Create a dictionary of the meta-data of the items on e-commerce store
         meta_data_dict = {
-            'product link': link.get_attribute_list('href'),
+            'product link': link.get('href'),
             'product name': name.get_text(),
             'product price': price.get_text()
         }
